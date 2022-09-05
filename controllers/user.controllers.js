@@ -3,7 +3,13 @@ let users = require('../data.json');
 
 
 module.exports.getAllUsers = (req, res, next) => {
-    res.send(users);
+    const { limit } = req.query;
+    if (limit) {
+        res.status(200).send(users.slice(0, limit));
+    } else {
+        res.status(200).send(users);
+    }
+
 }
 module.exports.getArandomUser = (req, res, next) => {
     const randomId = Math.floor(Math.random() * users.length);
