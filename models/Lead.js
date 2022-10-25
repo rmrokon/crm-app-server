@@ -25,6 +25,9 @@ const leadSchema = mongoose.Schema({
         type: String,
         trim: true
     },
+    imageUrl: {
+        type: String
+    },
     leadName: {
         type: String,
         trim: true

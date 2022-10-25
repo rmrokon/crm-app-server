@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const accountSchema = mongoose.Schema({
+const contactSchema = mongoose.Schema({
     contactOwner: {
         type: String,
         trim: true
@@ -21,6 +21,9 @@ const accountSchema = mongoose.Schema({
     lastName: {
         type: String,
         trim: true
+    },
+    imageUrl: {
+        type: String
     },
     contactName: {
         type: String,
@@ -85,6 +88,6 @@ const accountSchema = mongoose.Schema({
     }
 })
 
-const Contact = mongoose.model('Contact', accountSchema);
+const Contact = mongoose.model('Contact', contactSchema);
 
 module.exports = Contact;

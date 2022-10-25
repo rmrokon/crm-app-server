@@ -5,6 +5,11 @@ exports.getContactService = async () => {
     return contacts;
 };
 
+exports.getContactByIdService = async (_id) => {
+    const contact = await Contact.findById(_id);
+    return contact;
+};
+
 exports.createContactService = async (data) => {
     const contact = await Contact.create(data);
     return contact;
@@ -12,6 +17,6 @@ exports.createContactService = async (data) => {
 
 exports.updateContactService = async (contact) => {
     const { _id } = contact;
-    // const dealToUpdate = await Deal.findById(_id);
     const result = await Contact.updateOne({ _id }, { $set: contact });
+    return result;
 }

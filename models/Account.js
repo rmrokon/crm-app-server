@@ -21,6 +21,9 @@ const accountSchema = mongoose.Schema({
         type: String,
         trim: true
     },
+    imageUrl: {
+        type: String
+    },
     accountName: {
         type: String,
         trim: true,

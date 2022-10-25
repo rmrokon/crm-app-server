@@ -1,4 +1,4 @@
-const { getDealService, createDealService, updateDealService } = require('../services/deal.services');
+const { getDealService, createDealService, updateDealService, getDealByIdService } = require('../services/deal.services');
 
 
 module.exports.getDeals = async (req, res, next) => {
@@ -16,6 +16,24 @@ module.exports.getDeals = async (req, res, next) => {
         })
     }
 }
+
+module.exports.getDealById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const deal = await getDealByIdService(id);
+        res.status(200).json({
+            status: 'success',
+            data: deal
+        })
+    } catch (error) {
+        res.status(400).json({
+            status: 'failed',
+            message: "Can't fetch data",
+            error: error.message
+        })
+    }
+}
+
 module.exports.addDeal = async (req, res, next) => {
     try {
         const result = await createDealService(req.body)

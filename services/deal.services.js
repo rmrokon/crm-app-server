@@ -5,6 +5,11 @@ exports.getDealService = async () => {
     return deals;
 };
 
+exports.getDealByIdService = async (_id) => {
+    const deal = await Deal.findById(_id);
+    return deal;
+};
+
 exports.createDealService = async (data) => {
     const deal = await Deal.create(data);
     return deal;
@@ -12,6 +17,6 @@ exports.createDealService = async (data) => {
 
 exports.updateDealService = async (deal) => {
     const { _id } = deal;
-    // const dealToUpdate = await Deal.findById(_id);
     const result = await Deal.updateOne({ _id }, { $set: deal });
+    return result;
 }

@@ -8,4 +8,6 @@ router.route('/')
     .post(dealControllers.addDeal)
     .put(dealControllers.updateDeal)
 
+router.route('/:id')
+    .get(dealControllers.getDealById)
 module.exports = router;

@@ -14,7 +14,7 @@ const dealSchema = mongoose.Schema({
         type: String,
         trim: true
     },
-    type: {
+    rating: {
         type: String,
         trim: true
     },
